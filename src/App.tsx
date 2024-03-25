@@ -1,10 +1,10 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import './App.css'
-import githubLogo from './assets/github-mark/github-mark-white.svg'
+// import githubLogo from './assets/github-mark/github-mark-white.svg'
 import Navbar from "./components/navbar.tsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
       <>

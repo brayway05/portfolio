@@ -1,4 +1,4 @@
-import githubLogo from "../assets/github-mark/github-mark-white.svg";
+// import githubLogo from "../assets/github-mark/github-mark-white.svg";
 
 const Navbar = () => {
     return (
