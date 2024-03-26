@@ -1,4 +1,4 @@
-// import githubLogo from "../assets/github-mark/github-mark-white.svg";
+import githubLogo from "../assets/github-mark/github-mark-white.svg";
 
 const Navbar = () => {
     return (
@@ -7,14 +7,13 @@ const Navbar = () => {
                 <div className="text-white font-bold text-xl">My Portfolio Website</div>
                 <ul className="flex space-x-4">
                     <li>
-                        <a href="https://github.com/brayway05" className="text-gray-300 hover:text-white">
+                        <a href="https://github.com/brayway05" className="flex text-gray-300 hover:text-white">
+                            <img src={githubLogo} alt="Github logo" className="h-8 mr-2"/>
                             Github
                         </a>
-                        {/*TODO might not need github logo*/}
-                        {/*<img src={githubLogo} alt="Github logo" className="h-8 mr-2"/>*/}
                     </li>
                     <li>
-                        <a href="https://huggingface.co/Braywayc" className="text-gray-300 hover:text-white">
+                    <a href="https://huggingface.co/Braywayc" className="text-gray-300 hover:text-white">
                             Hugging Face
                         </a>
                     </li>
@@ -26,11 +25,6 @@ const Navbar = () => {
                     <li>
                         <a href="https://github.com/brayway05/Project-Links/tree/main" className="text-gray-300 hover:text-white">
                             Github Project Descriptions
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" className="text-gray-300 hover:text-white">
-                            Link 5
                         </a>
                     </li>
                 </ul>
