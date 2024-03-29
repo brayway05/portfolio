@@ -22,11 +22,6 @@ const Navbar = () => {
                             Linkedin
                         </a>
                     </li>
-                    <li>
-                        <a href="https://github.com/brayway05/Project-Links/tree/main" className="text-gray-300 hover:text-white">
-                            Github Project Descriptions
-                        </a>
-                    </li>
                 </ul>
             </div>
         </nav>
