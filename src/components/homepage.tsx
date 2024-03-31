@@ -1,4 +1,6 @@
 import DemoComponent from "./demo.tsx";
+import Profile from "./profile.tsx";
+import profilePic from "../assets/profile_pic.jpeg";
 
 const HomePage = () => {
 
@@ -22,7 +24,7 @@ const HomePage = () => {
     }
 
     const category_pricing = {
-        title: 'Category Pricing Tool @ <href >Pattern',
+        title: 'Category Pricing Tool @ Pattern',
         summary: 'Data warehouse analysis on Amazon category revenue trends',
         photos: [
             {
@@ -40,30 +42,9 @@ const HomePage = () => {
         ],
     };
 
-    const deep_learning_projects_data = {
-        title: 'CS 474 - Deep Learning- Projects',
-        link: 'https://github.com/brayway05/Project-Links/blob/main/Deep-Learning-Projects.md',
-        summary: 'This is a summary of my demo component.',
-        photos: [
-            {
-                src: 'https://via.placeholder.com/500x300',
-                caption: 'Photo 1',
-            },
-            {
-                src: 'https://via.placeholder.com/500x300',
-                caption: 'Photo 2',
-            },
-            {
-                src: 'https://via.placeholder.com/500x300',
-                caption: 'Photo 3',
-            },
-        ],
-    };
-
-    const computer_vision_projects_data = {
-        title: 'CS 450 - Computer Vision - Projects',
-        link: 'https://github.com/brayway05/Project-Links/blob/main/Computer-Vision-Projects.md',
-        summary: 'This is a summary of my demo component.',
+    const fraud_detection = {
+        title: 'Credit Card Fraud Detection Model',
+        summary: 'Machine Learning final project',
         photos: [
             {
                 src: 'https://via.placeholder.com/500x300',
@@ -82,6 +63,13 @@ const HomePage = () => {
 
     return (
         <div>
+            <div className="container mx-auto py-2">
+                <Profile
+                    profilePicture={profilePic}
+                    name={'Brayden Christensen'}
+                    intro={"I love to learn! In my free time I love to try new sports, games, and music. I snowboard and play the drums."}
+                />
+            </div>
             <div className="container mx-auto py-8">
                 <DemoComponent
                     title={deep_learning_data.title}
@@ -98,18 +86,9 @@ const HomePage = () => {
             </div>
             <div className="container mx-auto py-8">
                 <DemoComponent
-                    title={deep_learning_projects_data.title}
-                    link={deep_learning_projects_data.link}
-                    summary={deep_learning_projects_data.summary}
-                    photos={deep_learning_projects_data.photos}
-                />
-            </div>
-            <div className="container mx-auto py-8">
-                <DemoComponent
-                    title={computer_vision_projects_data.title}
-                    link={computer_vision_projects_data.link}
-                    summary={computer_vision_projects_data.summary}
-                    photos={computer_vision_projects_data.photos}
+                    title={fraud_detection.title}
+                    summary={fraud_detection.summary}
+                    photos={fraud_detection.photos}
                 />
             </div>
         </div>
