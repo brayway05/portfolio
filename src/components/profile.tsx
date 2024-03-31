@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import AddIcon from '@mui/icons-material/Add';
-import {IconButton} from "@mui/material";
+import {Chip, IconButton} from "@mui/material";
 
 interface ProfileComponentProps {
     profilePicture: string;
@@ -8,12 +8,32 @@ interface ProfileComponentProps {
     intro: string;
 }
 
+const languages = ['Python', 'SQL',  'Git', 'React', 'Angular', 'Java', 'C++'];
+const skills = ['Machine Learning', 'Data Analysis', 'Data Visualization', 'Deep Learning', 'Natural Language Processing', 'Computer Vision', 'Statistical Analysis', 'Predictive Modeling'];
+const libraries = ['Pandas', 'Numpy', 'Sci-kit learn', 'Matplotlib', 'Plotly', 'PyTorch', 'Statsmodels', 'OpenCV'];
+const databases = ['MySQL', 'MongoDB', 'Oracle', 'Snowflake', 'Redis', 'Cassandra', 'Neo4j'];
+
 const Profile: React.FC<ProfileComponentProps> = ({ profilePicture, name, intro }) => {
     const [showSkills, setShowSkills] = useState(false);
+    const [showLanguages, setShowLanguages] = useState(false);
+    const [showLibraries, setShowLibraries] = useState(false);
+    const [showDatabases, setShowDatabases] = useState(false);
 
     const handleShowSkillsClick = () => {
-        setShowSkills(!showSkills); // Toggle the visibility of skills
+        setShowSkills(!showSkills);
     };
+
+    const handleShowLanguagesClick = () => {
+        setShowLanguages(!showLanguages);
+    }
+
+    const handleShowLibrariesClick = () => {
+        setShowLibraries(!showLibraries);
+    }
+
+    const handleShowDatabasesClick = () => {
+        setShowDatabases(!showDatabases);
+    }
 
     return (
         <div className="flex flex-col md:flex-row items-center md:items-start">
@@ -33,14 +53,67 @@ const Profile: React.FC<ProfileComponentProps> = ({ profilePicture, name, intro 
                     <IconButton aria-label="add" color="primary" onClick={handleShowSkillsClick}>
                         <AddIcon />
                     </IconButton>
+                    <div className="mx-2 inline-block align-middle">Skills</div>
                 </div>
                 {showSkills && (
                     <div>
-                        <ul className="ml-6">
-                            <li>JavaScript</li>
-                            <li>React</li>
-                            <li>Data Analysis</li>
-                            {/* Add more skills as needed */}
+                        <ul className="list-none p-0 m-0">
+                            {
+                                skills.map((skill, index) => (
+                                    <Chip key={index} label={skill} className="inline-block mr-4 my-1" color="primary"/>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                )}
+                <div>
+                    <IconButton aria-label="add" color="primary" onClick={handleShowLanguagesClick}>
+                        <AddIcon />
+                    </IconButton>
+                    <div className="mx-2 inline-block align-middle">Languages</div>
+                </div>
+                {showLanguages && (
+                    <div>
+                        <ul className="list-none p-0 m-0">
+                            {
+                                languages.map((language, index) => (
+                                    <Chip key={index} label={language} className="inline-block mr-4 my-1" color="primary"/>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                )}
+                <div>
+                    <IconButton aria-label="add" color="primary" onClick={handleShowLibrariesClick}>
+                        <AddIcon />
+                    </IconButton>
+                    <div className="mx-2 inline-block align-middle">Python Libraries</div>
+                </div>
+                {showLibraries && (
+                    <div>
+                        <ul className="list-none p-0 m-0">
+                            {
+                                libraries.map((library, index) => (
+                                    <Chip key={index} label={library} className="inline-block mr-4 my-1" color="primary"/>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                )}
+                <div>
+                    <IconButton aria-label="add" color="primary" onClick={handleShowDatabasesClick}>
+                        <AddIcon />
+                    </IconButton>
+                    <div className="mx-2 inline-block align-middle">Databases</div>
+                </div>
+                {showDatabases && (
+                    <div>
+                        <ul className="list-none p-0 m-0">
+                            {
+                                databases.map((database, index) => (
+                                    <Chip key={index} label={database} className="inline-block mr-4 my-1" color="primary"/>
+                                ))
+                            }
                         </ul>
                     </div>
                 )}
