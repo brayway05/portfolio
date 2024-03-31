@@ -62,12 +62,16 @@ const HomePage = () => {
     };
 
     return (
-        <div>
+        <div className="bg-[#192031]">
             <div className="container mx-auto py-2">
                 <Profile
                     profilePicture={profilePic}
                     name={'Brayden Christensen'}
-                    intro={"I love to learn! In my free time I love to try new sports, games, and music. I snowboard and play the drums."}
+                    intro={"I love to learn! In my free time I love to try new sports, games, and music. I snowboard and play the drums. " +
+                        "My most experienced programming languages are Python, JavaScript, Java, and C++. " +
+                        "My most experienced Python libraries include Pandas, Sklearn, Matplotlib, Plotly, PyTorch, and Statmodels. " +
+                        "My past and current part-time jobs have give me lots of experience in statistical and machine learning modeling, big data analysis, and full stack development. " +
+                        "Here "}
                 />
             </div>
             <div className="container mx-auto py-8">
