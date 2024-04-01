@@ -1,7 +1,7 @@
-import githubLogo from "../assets/github-mark/github-mark-white.svg";
-import hfLogo from "../assets/hf-logo-pirate.svg";
-import linkedinLogo from "../assets/white_linkedin.png"
-import facebookLogo from "../assets/Facebook_Logo_Secondary.png"
+import githubLogo from "../assets/logos/github-mark-white.svg";
+import hfLogo from "../assets/logos/hf-logo-pirate.svg";
+import linkedinLogo from "../assets/logos/white_linkedin.png"
+import facebookLogo from "../assets/logos/Facebook_Logo_Secondary.png"
 
 const Navbar = () => {
     return (

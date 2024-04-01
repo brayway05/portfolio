@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import AddIcon from '@mui/icons-material/Add';
-import {Chip, IconButton} from "@mui/material";
+import {Chip, IconButton} from "@mui/material"; 
 
 interface ProfileComponentProps {
     profilePicture: string;
@@ -41,12 +41,12 @@ const Profile: React.FC<ProfileComponentProps> = ({ profilePicture, name, intro 
                 <img
                     src={profilePicture}
                     alt={`${name} Profile Picture`}
-                    className="w-60 h-60 rounded-full object-cover"
+                    className="w-64 h-64 rounded-full object-cover"
                 />
             </div>
             <div className="w-2/3 px-10 text-white">
                 <h2 className="text-3xl font-bold mb-2 tracking-wide">{name}</h2>
-                <h2 className="font-bold">Data Scientist</h2>
+                <h2 className="font-bold">Data Scientist & Full-stack</h2>
                 <p className="italic">About me</p>
                 <p className="text-gray-400">{intro}</p>
                 <div>
