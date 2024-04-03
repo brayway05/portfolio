@@ -1,6 +1,7 @@
 import React from 'react';
 import LinkIcon from '@mui/icons-material/Link';
 
+
 interface Photo {
     src: string;
     caption: string;

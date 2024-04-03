@@ -46,7 +46,7 @@ const Profile: React.FC<ProfileComponentProps> = ({ profilePicture, name, intro 
             </div>
             <div className="w-2/3 px-10 text-white">
                 <h2 className="text-3xl font-bold mb-2 tracking-wide">{name}</h2>
-                <h2 className="font-bold">Data Scientist & Full-stack</h2>
+                <h2 className="font-bold">Data Scientist & Full-stack Developer</h2>
                 <p className="italic">About me</p>
                 <p className="text-gray-400">{intro}</p>
                 <div>
