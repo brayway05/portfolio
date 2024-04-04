@@ -1,6 +1,8 @@
 import DemoComponent from "./demo.tsx";
 import Profile from "./profile.tsx";
 import profilePic from "../assets/profile_pic.jpeg";
+import query1 from "../assets/project_images/query1.png";
+import query2 from "../assets/project_images/query2.png";
 
 const HomePage = () => {
 
@@ -31,11 +33,11 @@ const HomePage = () => {
         github: 'https://github.com/brayway05/Natural_Language_AI',
         photos: [
             {
-                src: 'query1.png',
+                src: query1,
                 caption: 'Query Example 1',
             },
             {
-                src: 'query2.png',
+                src: query2,
                 caption: 'Query Example 2',
             },
         ],

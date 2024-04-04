@@ -32,7 +32,7 @@ const DemoComponent: React.FC<DemoComponentProps> = ({ title, github, summary, p
                 {photos.map((photo, index) => (
                     <div key={index}>
                         <img
-                            src={"src/assets/project_images/" + photo.src}
+                            src={photo.src}
                             alt={photo.caption}
                             className="w-full h-auto rounded-lg"
                         />
