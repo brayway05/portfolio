@@ -1,8 +1,10 @@
 import DemoComponent from "./demo.tsx";
 import Profile from "./profile.tsx";
 import profilePic from "../assets/profile_pic.jpeg";
-import query1 from "../assets/project_images/query1.png";
-import query2 from "../assets/project_images/query2.png";
+import query1 from "../assets/project_images/nlp_queries/query1.png";
+import query2 from "../assets/project_images/nlp_queries/query2.png";
+import pricing_1 from "../assets/project_images/cat_pricing/pricing_1.png";
+import pricing_2 from "../assets/project_images/cat_pricing/pricing_2.png";
 
 const HomePage = () => {
 
@@ -15,8 +17,16 @@ const HomePage = () => {
 
     const category_pricing = {
         title: 'Category Pricing Tool @ Pattern',
-        summary: 'Data warehouse analysis on Amazon category revenue trends',
+        summary: 'Data warehouse analysis on US Amazon category price trends. Streamlit app to automate data query, run category pricing algorithm and download data for marketing team analysis and visualization. Ask me about how the algorithm works and what kind of data I used!',
         photos: [
+            {
+                src: pricing_1,
+                caption: 'Streamlit App Dashboard',
+            },
+            {
+                src: pricing_2,
+                caption: 'Graph of Category Price Over Time',
+            }
         ],
     };
 

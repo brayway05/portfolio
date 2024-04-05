@@ -11,7 +11,7 @@ interface ProfileComponentProps {
 const languages = ['Python', 'SQL',  'Git', 'React', 'Angular', 'Java', 'C++'];
 const skills = ['Machine Learning', 'Data Analysis', 'Data Visualization', 'Deep Learning', 'Natural Language Processing', 'Computer Vision', 'Statistical Analysis', 'Predictive Modeling'];
 const libraries = ['Pandas', 'Numpy', 'Sci-kit learn', 'Matplotlib', 'Plotly', 'PyTorch', 'Statsmodels', 'OpenCV'];
-const databases = ['MySQL', 'MongoDB', 'Oracle', 'Snowflake', 'Redis', 'Cassandra', 'Neo4j'];
+const databases = ['MySQL', 'MongoDB', 'Oracle', 'Snowflake', 'Redis', 'Cassandra', 'Neo4j', 'Dataverse'];
 
 const Profile: React.FC<ProfileComponentProps> = ({ profilePicture, name, intro }) => {
     const [showSkills, setShowSkills] = useState(false);
