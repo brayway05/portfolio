@@ -10,7 +10,7 @@ const HomePage = () => {
 
     const deep_learning_data = {
         title: 'Deep Learning Final Project',
-        summary: 'Language/Speech recognition model built off of pre-trained audio detection model',
+        summary: 'Language/Speech recognition model built off of pre-trained audio detection model...Results coming soon!',
         photos: [
         ],
     }
@@ -32,7 +32,8 @@ const HomePage = () => {
 
     const fraud_detection = {
         title: 'Credit Card Fraud Detection Model',
-        summary: 'Group final project',
+        summary: 'Machine Learning group final project... Results coming soon!',
+        github: 'https://github.com/brayway05/fraud-detection',
         photos: [
         ],
     };
@@ -54,6 +55,9 @@ const HomePage = () => {
     };
 
     return (
+        // TODO create a projects tab and an experience tab where the user can switch between the two but stay on the main homepage
+        // TODO with the projects tab create experience tags that associate the project with either a job, or interested topic like Deep Learning or Computer Vision
+        // TODO add a download resume button
         <div className="bg-[#192031]">
             <div className="container mx-auto py-2">
                 <Profile
@@ -87,6 +91,7 @@ const HomePage = () => {
             <div className="container mx-auto py-8">
                 <DemoComponent
                     title={fraud_detection.title}
+                    github={fraud_detection.github}
                     summary={fraud_detection.summary}
                     photos={fraud_detection.photos}
                 />

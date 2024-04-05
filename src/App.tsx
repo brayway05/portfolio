@@ -1,4 +1,3 @@
-import './App.css'
 import Navbar from "./components/navbar.tsx";
 import HomePage from "./components/homepage.tsx";
 
