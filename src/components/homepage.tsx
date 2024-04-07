@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import DemoComponent from "./demo.tsx";
 import Profile from "./profile.tsx";
 import profilePic from "../assets/profile_pic.jpeg";
@@ -5,15 +6,18 @@ import query1 from "../assets/project_images/nlp_queries/query1.png";
 import query2 from "../assets/project_images/nlp_queries/query2.png";
 import pricing_1 from "../assets/project_images/cat_pricing/pricing_1.png";
 import pricing_2 from "../assets/project_images/cat_pricing/pricing_2.png";
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import LinkIcon from '@mui/icons-material/Link';
 
 const HomePage = () => {
+    const [activeTab, setActiveTab] = useState('projects');
 
     const deep_learning_data = {
         title: 'Deep Learning Final Project',
         summary: 'Language/Speech recognition model built off of pre-trained audio detection model...Results coming soon!',
-        photos: [
-        ],
-    }
+        photos: [],
+    };
 
     const category_pricing = {
         title: 'Category Pricing Tool @ Pattern',
@@ -26,7 +30,7 @@ const HomePage = () => {
             {
                 src: pricing_2,
                 caption: 'Graph of Category Price Over Time',
-            }
+            },
         ],
     };
 
@@ -34,8 +38,7 @@ const HomePage = () => {
         title: 'Credit Card Fraud Detection Model',
         summary: 'Machine Learning group final project... Results coming soon!',
         github: 'https://github.com/brayway05/fraud-detection',
-        photos: [
-        ],
+        photos: [],
     };
 
     const nlp_queries = {
@@ -54,50 +57,96 @@ const HomePage = () => {
         ],
     };
 
+    const projects = [
+        nlp_queries,
+        deep_learning_data,
+        category_pricing,
+        fraud_detection,
+    ];
+
+    const experience = [
+        {
+            title: 'Data Science Intern (Part-time)',
+            company: 'Pattern',
+            link: 'https://pattern.com/',
+            duration: 'Dec 2023 - Present',
+            description: 'Develop automated tools using Streamlit and SQL for data and consumer trend analysis for the marketing team. Implement ' +
+            'machine learning models like simple Neural Networks, Multi-polynomial Linear Regression, XGboost Trees, Clustering Algorithms and more for exploratory data analysis, visualization and modeling. ' +
+            'Thanks to 2 of the models I built, our marketing team was able to spot and explain upcoming consumer trends like the sudden increase in Solar Eclipse glasses sales in 2024.'
+        },
+        {
+            title: 'Full Stack Developer (Part-time)',
+            company: 'Church of Jesus Christ of Latter-day Saints',
+            link: 'https://www.churchofjesuschrist.org/?lang=eng',
+            duration: 'Mar 2023 - Present',
+            description: 'Build and maintain in-house web/mobile applications in a small dev team. When I started our stack was ' +
+            'Oracle, Angukar, Nest and Node but in Jan 2024 we switched to Dataverse, React, Express and Node using Vite and Turbo-repo. ' + 
+            'I have learned a lot working very closely with a QA team and a project manager to ensure that our applications are bug free and meet the needs of our users.'
+        },
+    ];
+
     return (
-        // TODO create a projects tab and an experience tab where the user can switch between the two but stay on the main homepage
-        // TODO with the projects tab create experience tags that associate the project with either a job, or interested topic like Deep Learning or Computer Vision
-        // TODO add a download resume button
         <div className="bg-[#192031]">
             <div className="container mx-auto py-2">
                 <Profile
                     profilePicture={profilePic}
                     name={'Brayden Christensen'}
-                    intro={"I love to learn! In my free time I love to try new sports, games, and music. I snowboard and play the drums. Here are some of my projects!"}
+                    intro={"I am a senior studying Computer Science with an emphasis in Machine Learning and a Math Minor. " +
+                    "I love to learn! In my free time I love to try new sports, games, and music. I snowboard and play the drums. Here are some of my projects!"}
                 />
             </div>
             <div className="container mx-auto py-8">
-                <DemoComponent
-                    title={nlp_queries.title}
-                    github={nlp_queries.github}
-                    summary={nlp_queries.summary}
-                    photos={nlp_queries.photos}
-                />
-            </div>
-            <div className="container mx-auto py-8">
-                <DemoComponent
-                    title={deep_learning_data.title}
-                    summary={deep_learning_data.summary}
-                    photos={deep_learning_data.photos}
-                />
-            </div>
-            <div className="container mx-auto py-8">
-                <DemoComponent
-                    title={category_pricing.title}
-                    summary={category_pricing.summary}
-                    photos={category_pricing.photos}
-                />
-            </div>
-            <div className="container mx-auto py-8">
-                <DemoComponent
-                    title={fraud_detection.title}
-                    github={fraud_detection.github}
-                    summary={fraud_detection.summary}
-                    photos={fraud_detection.photos}
-                />
+                <Tabs 
+                    value={activeTab} 
+                    onChange={(event, newValue) => setActiveTab(newValue)}
+                    className='flex justify-center mb-8'
+                    >
+                    <Tab 
+                        label="Projects" 
+                        value="projects"
+                        sx={{
+                            color: '#777',
+                            '&.Mui-selected': {
+                                color: '#fff',
+                            },
+                        }}/>
+                    <Tab 
+                        label="Experience" 
+                        value="experience" 
+                        sx={{
+                            color: '#777',
+                            '&.Mui-selected': {
+                                color: '#fff',
+                            },
+                    }}/>
+                </Tabs>
+                    {activeTab === 'projects' ? (
+                        <div>
+                            {projects.map((project, index) => (
+                                <div key={index} className="container mx-auto py-8">
+                                    <DemoComponent
+                                        title={project.title}
+                                        github={project.github}
+                                        summary={project.summary}
+                                        photos={project.photos}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className='text-white'>
+                            {experience.map((exp, index) => (
+                                <div key={index} className="container mx-auto py-8">
+                                    <h2 className="text-2xl font-bold mb-2">{exp.title}</h2>
+                                    <p className="text-blue-400 mb-2"><LinkIcon /><b><a href={exp.link}>{exp.company}</a></b> - {exp.duration}</p>
+                                    <p className="text-gray-400">{exp.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                    )}
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default HomePage;
