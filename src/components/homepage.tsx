@@ -10,16 +10,28 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import LinkIcon from '@mui/icons-material/Link';
 
+interface Photo {
+    src: string;
+    caption: string;
+}
+
+interface Project {
+    title: string;
+    github?: string;
+    summary: string;
+    photos: Photo[];
+}
+
 const HomePage = () => {
     const [activeTab, setActiveTab] = useState('projects');
 
-    const deep_learning_data = {
+    const deep_learning_data: Project = {
         title: 'Deep Learning Final Project',
         summary: 'Language/Speech recognition model built off of pre-trained audio detection model...Results coming soon!',
         photos: [],
     };
 
-    const category_pricing = {
+    const category_pricing: Project = {
         title: 'Category Pricing Tool @ Pattern',
         summary: 'Data warehouse analysis on US Amazon category price trends. Streamlit app to automate data query, run category pricing algorithm and download data for marketing team analysis and visualization. Ask me about how the algorithm works and what kind of data I used!',
         photos: [
@@ -34,14 +46,14 @@ const HomePage = () => {
         ],
     };
 
-    const fraud_detection = {
+    const fraud_detection: Project = {
         title: 'Credit Card Fraud Detection Model',
         summary: 'Machine Learning group final project... Results coming soon!',
         github: 'https://github.com/brayway05/fraud-detection',
         photos: [],
     };
 
-    const nlp_queries = {
+    const nlp_queries: Project = {
         title: 'Natural Language Processing SQL',
         summary: 'Database systems class project using OpenAPI and SQL to query data using natural language as input',
         github: 'https://github.com/brayway05/Natural_Language_AI',
@@ -57,7 +69,7 @@ const HomePage = () => {
         ],
     };
 
-    const projects = [
+    const projects: Project[] = [
         nlp_queries,
         deep_learning_data,
         category_pricing,
@@ -98,9 +110,9 @@ const HomePage = () => {
             <div className="container mx-auto py-8">
                 <Tabs 
                     value={activeTab} 
-                    onChange={(event, newValue) => setActiveTab(newValue)}
+                    onChange={(_, value) => setActiveTab(value)}
                     className='flex justify-center mb-8'
-                    >
+                >
                     <Tab 
                         label="Projects" 
                         value="projects"
