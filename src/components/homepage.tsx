@@ -9,6 +9,10 @@ import pricing_2 from "../assets/project_images/cat_pricing/pricing_2.png";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import LinkIcon from '@mui/icons-material/Link';
+import confusion from "../assets/project_images/cc_fraud/confusion_matrix.png";
+import table from "../assets/project_images/cc_fraud/table.png";
+import roc from "../assets/project_images/cc_fraud/roc.png";
+
 
 interface Photo {
     src: string;
@@ -28,7 +32,8 @@ const HomePage = () => {
     const deep_learning_data: Project = {
         title: 'Deep Learning Final Project',
         summary: 'Language/Speech recognition model built off of pre-trained audio detection model...Results coming soon!',
-        photos: [],
+        photos: [
+        ],
     };
 
     const category_pricing: Project = {
@@ -48,9 +53,22 @@ const HomePage = () => {
 
     const fraud_detection: Project = {
         title: 'Credit Card Fraud Detection Model',
-        summary: 'Machine Learning group final project... Results coming soon!',
+        summary: 'Machine Learning group final project using Kaggle dataset to predict credit card fraud. Used SMOTE, PCA, and XGBoost to achieve 99% accuracy. Ask me about the data processing and model types!',
         github: 'https://github.com/brayway05/fraud-detection',
-        photos: [],
+        photos: [
+            {
+                src: roc,
+                caption: 'ROC Curve for Isolation Forest',
+            },
+            {
+                src: confusion,
+                caption: 'Confusion Matrix'
+            },
+            {
+                src: table,
+                caption: 'Model Metrics'
+            }
+        ],
     };
 
     const nlp_queries: Project = {
@@ -148,7 +166,7 @@ const HomePage = () => {
                     ) : (
                         <div className='text-white'>
                             {experience.map((exp, index) => (
-                                <div key={index} className="container mx-auto py-8">
+                                <div key={index} className="container mx-auto py-8 px-8">
                                     <h2 className="text-2xl font-bold mb-2">{exp.title}</h2>
                                     <p className="text-blue-400 mb-2"><LinkIcon /><b><a href={exp.link}>{exp.company}</a></b> - {exp.duration}</p>
                                     <p className="text-gray-400">{exp.description}</p>
