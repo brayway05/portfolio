@@ -12,6 +12,9 @@ import LinkIcon from '@mui/icons-material/Link';
 import confusion from "../assets/project_images/cc_fraud/confusion_matrix.png";
 import table from "../assets/project_images/cc_fraud/table.png";
 import roc from "../assets/project_images/cc_fraud/roc.png";
+import AST from "../assets/project_images/lang_detect/AST.png";
+import metrics from "../assets/project_images/lang_detect/metrics.png";
+import plots from "../assets/project_images/lang_detect/plots.png";
 
 
 interface Photo {
@@ -31,8 +34,21 @@ const HomePage = () => {
 
     const deep_learning_data: Project = {
         title: 'Deep Learning Final Project',
-        summary: 'Language/Speech recognition model built off of pre-trained audio detection model...Results coming soon!',
+        summary: 'Language recognition models built from pre-trained ResNet18 and implemented my own Audio Spectrogram Transformer to compare results. I learned a lot about audio processing and the different architectures that exist for audio classification and speech recongnition. Ask me about the different models I used and how I implemented the Audio Spectrogram Transformer! Also check out the github for my training code and report pdf.',
+        github: 'https://github.com/brayway05/CS-474/tree/main/final',
         photos: [
+            {
+                src: AST,
+                caption: 'Audio Spectrogram Transformer',
+            },
+            {
+                src: metrics,
+                caption: 'Overall Metrics',
+            },
+            {
+                src: plots,
+                caption: 'ResNet18 results',
+            }
         ],
     };
 
