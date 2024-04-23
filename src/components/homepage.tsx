@@ -118,7 +118,7 @@ const HomePage = () => {
             duration: 'Dec 2023 - Present',
             description: 'Develop automated tools using Streamlit and SQL for data and consumer trend analysis for the marketing team. Implement ' +
             'machine learning models like simple Neural Networks, Multi-polynomial Linear Regression, XGboost Trees, Clustering Algorithms and more for exploratory data analysis, visualization and modeling. ' +
-            'Thanks to 2 of the models I built, our marketing team was able to spot and explain upcoming consumer trends like the sudden increase in Solar Eclipse glasses sales in 2024.'
+            'Thanks to 2 of the models I built, our marketing team was able to spot and explain upcoming consumer trends like the sudden increase in Solar Eclipse glasses sales in 2024 based on Amazon search terms.'
         },
         {
             title: 'Full Stack Developer (Part-time)',
@@ -137,8 +137,8 @@ const HomePage = () => {
                 <Profile
                     profilePicture={profilePic}
                     name={'Brayden Christensen'}
-                    intro={"I am a senior studying Computer Science with an emphasis in Machine Learning and a Math Minor. " +
-                    "I love to learn! In my free time I love to try new sports, games, and music. I snowboard and play the drums. Here are some of my projects!"}
+                    intro={"I am a senior studying Computer Science with an emphasis in Machine Learning and Math Minor. " +
+                    "I love to learn! In my free time I love to try new sports, games, and music. I snowboard and play the drums. Here are some of my skills and projects!"}
                 />
             </div>
             <div className="container mx-auto py-8">

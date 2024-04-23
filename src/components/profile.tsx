@@ -9,8 +9,9 @@ interface ProfileComponentProps {
     intro: string;
 }
 
-const languages = ['Python', 'SQL',  'Git', 'React', 'Angular', 'Java', 'C++'];
-const skills = ['Git', 'Machine Learning', 'Data Analysis', 'Data Visualization', 'Deep Learning', 'Natural Language Processing', 'Computer Vision', 'Statistical Analysis', 'Predictive Modeling'];
+const languages = ['Python', 'SQL', 'JavaScript', 'Java', 'C++'];
+const frameworks = ['Streamlit', 'React', 'Angular', 'Express', 'Node.js'];
+const skills = ['Git', 'Machine Learning', 'Data Analysis', 'Data Visualization', 'Deep Learning', 'Natural Language Processing', 'Computer Vision', 'Statistical Analysis', 'Predictive Modeling', 'Full-Stack Development'];
 const libraries = ['Pandas', 'Numpy', 'Sci-kit learn', 'Matplotlib', 'Plotly', 'PyTorch', 'Statsmodels', 'OpenCV'];
 const databases = ['MySQL', 'MongoDB', 'Oracle', 'Snowflake', 'Redis', 'Cassandra', 'Neo4j', 'Dataverse'];
 
@@ -19,6 +20,7 @@ const Profile: React.FC<ProfileComponentProps> = ({ profilePicture, name, intro 
     const [showLanguages, setShowLanguages] = useState(false);
     const [showLibraries, setShowLibraries] = useState(false);
     const [showDatabases, setShowDatabases] = useState(false);
+    const [showFrameworks, setShowFrameworks] = useState(false);
 
     const handleShowSkillsClick = () => {
         setShowSkills(!showSkills);
@@ -34,6 +36,10 @@ const Profile: React.FC<ProfileComponentProps> = ({ profilePicture, name, intro 
 
     const handleShowDatabasesClick = () => {
         setShowDatabases(!showDatabases);
+    }
+
+    const handleShowFrameworksClick = () => {
+        setShowFrameworks(!showFrameworks);
     }
 
     return (
@@ -79,6 +85,23 @@ const Profile: React.FC<ProfileComponentProps> = ({ profilePicture, name, intro 
                             {
                                 languages.map((language, index) => (
                                     <Chip key={index} label={language} className="inline-block mr-4 my-1" color="primary"/>
+                                ))
+                            }
+                        </ul>
+                    </div>
+                )}
+                <div>
+                    <IconButton aria-label="add" color="primary" onClick={handleShowFrameworksClick}>
+                        <AddIcon />
+                    </IconButton>
+                    <div className="mx-2 inline-block align-middle">Frameworks</div>
+                </div>
+                {showFrameworks && (
+                    <div>
+                        <ul className="list-none p-0 m-0">
+                            {
+                                frameworks.map((framework, index) => (
+                                    <Chip key={index} label={framework} className="inline-block mr-4 my-1" color="primary"/>
                                 ))
                             }
                         </ul>
