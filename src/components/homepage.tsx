@@ -117,8 +117,7 @@ const HomePage = () => {
             link: 'https://pattern.com/',
             duration: 'Dec 2023 - Present',
             description: 'Develop automated tools using Streamlit and SQL for data and consumer trend analysis for the marketing team. Implement ' +
-            'machine learning models like simple Neural Networks, Multi-polynomial Linear Regression, XGboost Trees, Clustering Algorithms and more for exploratory data analysis, visualization and modeling. ' +
-            'Thanks to 2 of the models I built, our marketing team was able to spot and explain upcoming consumer trends like the sudden increase in Solar Eclipse glasses sales in 2024 based on Amazon search terms.'
+            'machine learning models like simple Neural Networks, Multi-polynomial Linear Regression, XGboost Trees, Clustering Algorithms and more for exploratory data analysis, visualization and modeling.'
         },
         {
             title: 'Full Stack Developer (Part-time)',
