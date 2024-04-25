@@ -5,7 +5,7 @@ import facebookLogo from "../assets/logos/Facebook_Logo_Secondary.png"
 
 const Navbar = () => {
     return (
-        <nav className="bg-gray-800 py-4 sticky top-0">
+        <nav className="bg-[#192031] py-4 sticky top-0">
             <div className="container mx-auto px-4 flex justify-between items-center">
                 <div className="text-white font-bold text-xl">My Portfolio Website</div>
                 <ul className="flex space-x-4">

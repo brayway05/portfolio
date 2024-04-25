@@ -131,7 +131,7 @@ const HomePage = () => {
     ];
 
     return (
-        <div className="bg-[#192031]">
+        <div className="bg-gradient-to-r from-[#192031] via-indigo-800 to-blue-800">
             <div className="container mx-auto py-2">
                 <Profile
                     profilePicture={profilePic}
