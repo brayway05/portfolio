@@ -125,7 +125,7 @@ const HomePage = () => {
             link: 'https://www.churchofjesuschrist.org/?lang=eng',
             duration: 'Mar 2023 - Present',
             description: 'Build and maintain in-house web/mobile applications in a small dev team. When I started our stack was ' +
-            'Oracle, Angukar, Nest and Node but in Jan 2024 we switched to Dataverse, React, Express and Node using Vite and Turbo-repo. ' + 
+            'Oracle, Angular, Nest and Node but in Jan 2024 we switched to Dataverse, React, Express and Node using Vite and Turbo-repo. ' + 
             'I have learned a lot working very closely with a QA team and a project manager to ensure that our applications are bug free and meet the needs of our users.'
         },
     ];
