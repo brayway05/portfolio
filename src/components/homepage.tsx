@@ -106,8 +106,8 @@ const HomePage = () => {
     };
 
     const pipeline_project: Project = {
-        title: 'Pipeline Project',
-        summary: 'Data Engineering project using Apache Airflow and Spark to take data from a free API, process it, and display it here on my website.',
+        title: 'Apache Airflow Pipeline Project',
+        summary: 'Personal Data Engineering project using Apache Airflow and Spark to take data from the Starlink free API, process their satellite data, and display it here on my website. I am storing the data as a compressed JSON file in an S3 bucket and using a Lambda function to generate a presigned URL to view the data. Check out the github for the Airflow code.',
         github: 'https://github.com/brayway05/pipeline_project',
         component: S3FileViewer
     };
