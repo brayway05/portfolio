@@ -11,10 +11,11 @@ interface DemoComponentProps {
     title: string;
     github?: string;
     summary: string;
-    photos: Photo[];
+    photos?: Photo[];
+    Component?: React.FC;
 }
 
-const DemoComponent: React.FC<DemoComponentProps> = ({ title, github, summary, photos }) => {
+const DemoComponent: React.FC<DemoComponentProps> = ({ title, github, summary, photos, Component}) => {
     return (
         <div className="bg-gray-100 p-6 rounded-lg shadow-md">
             <div className="mb-4">
@@ -29,7 +30,7 @@ const DemoComponent: React.FC<DemoComponentProps> = ({ title, github, summary, p
             </div>
             <p className="text-gray-700 mb-6">{summary}</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
-                {photos.map((photo, index) => (
+                {photos?.map((photo, index) => (
                     <div key={index}>
                         <img
                             src={photo.src}
@@ -42,6 +43,11 @@ const DemoComponent: React.FC<DemoComponentProps> = ({ title, github, summary, p
                     </div>
                 ))}
             </div>
+            {Component && (
+                <div className="mt-6">
+                    <Component />
+                </div>
+            )}
         </div>
     )
 }

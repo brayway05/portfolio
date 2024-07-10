@@ -15,6 +15,7 @@ import roc from "../assets/project_images/cc_fraud/roc.png";
 import AST from "../assets/project_images/lang_detect/AST.png";
 import metrics from "../assets/project_images/lang_detect/metrics.png";
 import plots from "../assets/project_images/lang_detect/plots.png";
+import S3FileViewer from './pipeline-s3-viewer.tsx';
 
 
 interface Photo {
@@ -26,7 +27,8 @@ interface Project {
     title: string;
     github?: string;
     summary: string;
-    photos: Photo[];
+    photos?: Photo[];
+    component?: React.FC;
 }
 
 const HomePage = () => {
@@ -103,11 +105,19 @@ const HomePage = () => {
         ],
     };
 
+    const pipeline_project: Project = {
+        title: 'Pipeline Project',
+        summary: 'Data Engineering project using Apache Airflow and Spark to take data from a free API, process it, and display it here on my website.',
+        github: 'https://github.com/brayway05/pipeline_project',
+        component: S3FileViewer
+    };
+
     const projects: Project[] = [
         nlp_queries,
         deep_learning_data,
         category_pricing,
         fraud_detection,
+        pipeline_project
     ];
 
     const experience = [
@@ -124,7 +134,8 @@ const HomePage = () => {
             link: 'https://www.churchofjesuschrist.org/?lang=eng',
             duration: 'Mar 2023 - Present',
             description: 'Build and maintain in-house web/mobile applications in a small dev team. When I started our stack was ' +
-            'Oracle, Angular, Nest and Node but in Jan 2024 we switched to Dataverse, React, Express and Node using Vite and Turbo-repo. ' + 
+            'Oracle, Angular, Nest and Node but in January 2024 we switched to React, Express and Node using Vite and Turbo-repo. ' + 
+            'I was given the responsibility of Lead Developer in March 2024 and have been leading development on a new mobile/web application since then.' +
             'I have learned a lot working very closely with a QA team and a project manager to ensure that our applications are bug free and meet the needs of our users.'
         },
     ];
@@ -172,7 +183,8 @@ const HomePage = () => {
                                         title={project.title}
                                         github={project.github}
                                         summary={project.summary}
-                                        photos={project.photos}
+                                        photos={project?.photos}
+                                        Component={project?.component}
                                     />
                                 </div>
                             ))}
