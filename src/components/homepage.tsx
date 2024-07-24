@@ -126,7 +126,10 @@ const HomePage = () => {
             company: 'Pattern',
             link: 'https://pattern.com/',
             duration: 'Dec 2023 - Present',
-            description: 'At Pattern, I develop automated tools using Streamlit and SQL for data and consumer trend analysis for the marketing team. I so spend time developing machine learning models like simple Neural Networks, Multi-polynomial Linear Regression, XGboost Trees, Clustering Algorithms and more for exploratory data analysis, visualization and modeling.'
+            description: 'At Pattern, I develop automated tools using Streamlit and SQL for data and consumer trend analysis for the marketing team. I so spend time developing machine learning models like simple Neural Networks, Multi-polynomial Linear Regression, XGboost Trees, Clustering Algorithms and more for exploratory data analysis, visualization and modeling. ' + 
+            'With these tools, the PR team is able to increase SEO through press articles about Amazon consumer behavior and relevant pop-culture trends. Specifically our digital PR program has netted 140 high-quality backlinks to Pattern.com in 2024. ' + 
+            'During my time at Pattern, Pattern has been in the news 3 times per day on average. Pattern is also now the top organic search term for "ecommerce accelerator" ' +
+            'Finally, stores come from 547 publications in 46 states in the U.S. and 9 countries around the world.'
         },
         {
             title: 'Full Stack Developer (Part-time)',
@@ -136,7 +139,8 @@ const HomePage = () => {
             description: 'Build and maintain in-house web/mobile applications in a small dev team. When I started our stack was ' +
             'Oracle, Angular, Nest and Node but in January 2024 we switched to React, Express and Node using Vite and Turbo-repo. ' + 
             'I was given the responsibility of Lead Developer in March 2024 and have been leading development on a new mobile/web application since then.' +
-            'I have learned a lot working very closely with a QA team and a project manager to ensure that our applications are bug free and meet the needs of our users.'
+            'I have learned a lot working very closely with a QA team and a project manager to ensure that our applications are bug free and meet the needs of our users. ' +
+            'Most recently I have been working on an AI-powered chatbot that allows missionaries to practice communicating with people in different languages both over text and voice.'
         },
     ];
 

@@ -11,7 +11,7 @@ interface ProfileComponentProps {
 
 const languages = ['Python', 'SQL', 'JavaScript', 'Java', 'C++'];
 const frameworks = ['Streamlit', 'React', 'Angular', 'Express', 'Node.js'];
-const skills = ['Git', 'Machine Learning', 'Data Analysis', 'Data Visualization', 'Deep Learning', 'Natural Language Processing', 'Computer Vision', 'Statistical Analysis', 'Predictive Modeling', 'Full-Stack Development', 'GCP', 'AWS', 'Android Development'];
+const skills = ['Git', 'Machine Learning', 'Data Analysis', 'Data Visualization', 'Deep Learning', 'Natural Language Processing', 'Computer Vision', 'Statistical Analysis', 'Predictive Modeling', 'Full-Stack Development', 'GCP', 'AWS', 'Android Development', 'Apache Airflow'];
 const libraries = ['Pandas', 'Numpy', 'Sci-kit learn', 'Matplotlib', 'Plotly', 'PyTorch', 'Statsmodels', 'OpenCV'];
 const databases = ['MySQL', 'MongoDB', 'Oracle', 'Snowflake', 'Redis', 'Cassandra', 'Neo4j', 'Dataverse'];
 
@@ -60,7 +60,7 @@ const Profile: React.FC<ProfileComponentProps> = ({ profilePicture, name, intro 
                     <IconButton aria-label="add" color="primary" onClick={handleShowSkillsClick}>
                         <AddIcon />
                     </IconButton>
-                    <div className="mx-2 inline-block align-middle">Skills</div>
+                    <div className="mx-2 inline-block align-middle" onClick={handleShowSkillsClick}>Skills</div>
                 </div>
                 {showSkills && (
                     <div>
@@ -77,7 +77,7 @@ const Profile: React.FC<ProfileComponentProps> = ({ profilePicture, name, intro 
                     <IconButton aria-label="add" color="primary" onClick={handleShowLanguagesClick}>
                         <AddIcon />
                     </IconButton>
-                    <div className="mx-2 inline-block align-middle">Languages</div>
+                    <div className="mx-2 inline-block align-middle"  onClick={handleShowLanguagesClick}>Languages</div>
                 </div>
                 {showLanguages && (
                     <div>
@@ -94,7 +94,7 @@ const Profile: React.FC<ProfileComponentProps> = ({ profilePicture, name, intro 
                     <IconButton aria-label="add" color="primary" onClick={handleShowFrameworksClick}>
                         <AddIcon />
                     </IconButton>
-                    <div className="mx-2 inline-block align-middle">Frameworks</div>
+                    <div className="mx-2 inline-block align-middle" onClick={handleShowFrameworksClick}>Frameworks</div>
                 </div>
                 {showFrameworks && (
                     <div>
@@ -111,7 +111,7 @@ const Profile: React.FC<ProfileComponentProps> = ({ profilePicture, name, intro 
                     <IconButton aria-label="add" color="primary" onClick={handleShowLibrariesClick}>
                         <AddIcon />
                     </IconButton>
-                    <div className="mx-2 inline-block align-middle">Python Libraries</div>
+                    <div className="mx-2 inline-block align-middle" onClick={handleShowLibrariesClick}>Python Libraries</div>
                 </div>
                 {showLibraries && (
                     <div>
@@ -128,7 +128,7 @@ const Profile: React.FC<ProfileComponentProps> = ({ profilePicture, name, intro 
                     <IconButton aria-label="add" color="primary" onClick={handleShowDatabasesClick}>
                         <AddIcon />
                     </IconButton>
-                    <div className="mx-2 inline-block align-middle">Databases</div>
+                    <div className="mx-2 inline-block align-middle" onClick={handleShowDatabasesClick}>Databases</div>
                 </div>
                 {showDatabases && (
                     <div>
@@ -142,7 +142,11 @@ const Profile: React.FC<ProfileComponentProps> = ({ profilePicture, name, intro 
                     </div>
                 )}
             </div>
-            <Button variant="outlined" startIcon={<DownloadIcon />} href='src/assets/resume_tech.pdf' download>
+            <Button style={{
+                backgroundColor: '#2196F3',
+                color: 'white',
+                marginTop: '20px'
+            }} variant="outlined" startIcon={<DownloadIcon />} href='src/assets/resume_tech.pdf' download>
                 Resume
             </Button>
         </div>
