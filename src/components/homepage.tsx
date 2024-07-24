@@ -128,8 +128,8 @@ const HomePage = () => {
             duration: 'Dec 2023 - Present',
             description: 'At Pattern, I develop automated tools using Streamlit and SQL for data and consumer trend analysis for the marketing team. I so spend time developing machine learning models like simple Neural Networks, Multi-polynomial Linear Regression, XGboost Trees, Clustering Algorithms and more for exploratory data analysis, visualization and modeling. ' + 
             'With these tools, the PR team is able to increase SEO through press articles about Amazon consumer behavior and relevant pop-culture trends. Specifically our digital PR program has netted 140 high-quality backlinks to Pattern.com in 2024. ' + 
-            'During my time at Pattern, Pattern has been in the news 3 times per day on average. Pattern is also now the top organic search term for "ecommerce accelerator" ' +
-            'Finally, stores come from 547 publications in 46 states in the U.S. and 9 countries around the world.'
+            'During my time at Pattern, Pattern has been in the news 3 times per day on average. Pattern is also now the top organic search term for "ecommerce accelerator". ' +
+            'Finally, stories come from 547 publications in 46 states in the U.S. and 9 countries around the world.'
         },
         {
             title: 'Full Stack Developer (Part-time)',
