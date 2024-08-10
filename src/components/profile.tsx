@@ -142,13 +142,20 @@ const Profile: React.FC<ProfileComponentProps> = ({ profilePicture, name, intro 
                     </div>
                 )}
             </div>
-            <Button style={{
-                backgroundColor: '#2196F3',
-                color: 'white',
-                marginTop: '20px'
-            }} variant="outlined" startIcon={<DownloadIcon />} href='src/assets/resume_tech.pdf' download>
+            <Button
+                style={{
+                    backgroundColor: '#2196F3',
+                    color: 'white',
+                    marginTop: '20px',
+                }}
+                variant="outlined"
+                startIcon={<DownloadIcon />}
+                href='/src/assets/resume_tech.pdf'
+                target="_blank"
+                rel="noopener noreferrer"
+                >
                 Resume
-            </Button>
+                </Button>
         </div>
     );
 };
