@@ -7,7 +7,7 @@ const Navbar = () => {
     return (
         <nav className="bg-[#192031] py-4 sticky top-0">
             <div className="container mx-auto px-4 flex justify-between items-center">
-                <div className="text-white font-bold text-xl">My Portfolio Website</div>
+                <div className="text-white font-bold text-xl">Brayden Christensen</div>
                 <ul className="flex space-x-4">
                     <li>
                         <a href="https://github.com/brayway05" className="flex text-gray-300 hover:text-white">
