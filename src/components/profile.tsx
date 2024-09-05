@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import AddIcon from '@mui/icons-material/Add';
 import {Chip, IconButton, Button} from "@mui/material"; 
 import DownloadIcon from '@mui/icons-material/Download';
+import resumePDF from '../assets/resume_tech.pdf';
 
 interface ProfileComponentProps {
     profilePicture: string;
@@ -150,7 +151,7 @@ const Profile: React.FC<ProfileComponentProps> = ({ profilePicture, name, intro 
                 }}
                 variant="outlined"
                 startIcon={<DownloadIcon />}
-                href='/src/assets/resume_tech.pdf'
+                href={resumePDF}
                 target="_blank"
                 rel="noopener noreferrer"
                 >
