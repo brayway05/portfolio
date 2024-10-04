@@ -34,10 +34,10 @@ interface Project {
 const HomePage = () => {
     const [activeTab, setActiveTab] = useState('projects');
 
-    const deep_learning_data: Project = {
+    const deep_learning_final: Project = {
         title: 'Deep Learning Final Project',
         summary: 'Language recognition models built from pre-trained ResNet18 and implemented my own Audio Spectrogram Transformer to compare results. I learned a lot about audio processing and the different architectures that exist for audio classification and speech recongnition. Ask me about the different models I used and how I implemented the Audio Spectrogram Transformer! Also check out the github for my training code and report pdf.',
-        github: 'https://github.com/brayway05/CS-474/tree/main/final',
+        github: 'https://github.com/brayway05/language-classification',
         photos: [
             {
                 src: AST,
@@ -114,7 +114,7 @@ const HomePage = () => {
 
     const projects: Project[] = [
         nlp_queries,
-        deep_learning_data,
+        deep_learning_final,
         category_pricing,
         fraud_detection,
         pipeline_project

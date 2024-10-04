@@ -12,9 +12,9 @@ interface ProfileComponentProps {
 
 const languages = ['Python', 'SQL', 'JavaScript', 'Java', 'C++'];
 const frameworks = ['Streamlit', 'React', 'Angular', 'Express', 'Node.js'];
-const skills = ['Git', 'Machine Learning', 'Data Analysis', 'Data Visualization', 'Deep Learning', 'Natural Language Processing', 'Computer Vision', 'Statistical Analysis', 'Predictive Modeling', 'Full-Stack Development', 'GCP', 'AWS', 'Android Development', 'Apache Airflow'];
+const skills = ['Git', 'Machine Learning', 'Data Analysis', 'Data Visualization', 'Deep Learning', 'Natural Language Processing', 'Computer Vision', 'Statistical Analysis', 'Predictive Modeling', 'Full-Stack Development', 'AWS', 'Android Development', 'Apache Airflow'];
 const libraries = ['Pandas', 'Numpy', 'Sci-kit learn', 'Matplotlib', 'Plotly', 'PyTorch', 'Statsmodels', 'OpenCV'];
-const databases = ['MySQL', 'MongoDB', 'Oracle', 'Snowflake', 'Redis', 'Cassandra', 'Neo4j', 'Dataverse'];
+const databases = ['MySQL', 'PostgreSQL', 'MongoDB', 'Oracle', 'Snowflake', 'Redis'];
 
 const Profile: React.FC<ProfileComponentProps> = ({ profilePicture, name, intro }) => {
     const [showSkills, setShowSkills] = useState(false);
