@@ -10,11 +10,11 @@ interface ProfileComponentProps {
     intro: string;
 }
 
-const languages = ['Python', 'SQL', 'JavaScript', 'Java', 'C++'];
-const frameworks = ['Streamlit', 'React', 'Angular', 'Express', 'Node.js'];
-const skills = ['Git', 'Machine Learning', 'Data Analysis', 'Data Visualization', 'Deep Learning', 'Natural Language Processing', 'Computer Vision', 'Statistical Analysis', 'Predictive Modeling', 'Full-Stack Development', 'AWS', 'Android Development', 'Apache Airflow'];
-const libraries = ['Pandas', 'Numpy', 'Sci-kit learn', 'Matplotlib', 'Plotly', 'PyTorch', 'Statsmodels', 'OpenCV'];
-const databases = ['MySQL', 'PostgreSQL', 'MongoDB', 'Oracle', 'Snowflake', 'Redis'];
+const languages = ['Python', 'SQL', 'JavaScript']
+const frameworks = ['Streamlit', 'React', 'Express', 'Node.js'];
+const skills = ['Git', 'Machine Learning', 'Data Science', 'Deep Learning', 'Natural Language Processing', 'Statistical Modeling', 'Full-Stack Development', 'AWS', 'Data Engineering'];
+const libraries = ['Pandas', 'Numpy', 'Sci-kit learn', 'Matplotlib', 'Plotly', 'PyTorch', 'TensorFlow', 'Statsmodels', 'Huggingface'];
+const databases = ['MySQL', 'PostgreSQL', 'Oracle', 'Snowflake', 'Redis'];
 
 const Profile: React.FC<ProfileComponentProps> = ({ profilePicture, name, intro }) => {
     const [showSkills, setShowSkills] = useState(false);

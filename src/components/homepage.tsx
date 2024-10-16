@@ -129,7 +129,13 @@ const HomePage = () => {
             description: 'At Pattern, I develop automated tools using Streamlit and SQL for data and consumer trend analysis for the marketing team. I so spend time developing machine learning models like simple Neural Networks, Multi-polynomial Linear Regression, XGboost Trees, Clustering Algorithms and more for exploratory data analysis, visualization and modeling. ' + 
             'With these tools, the PR team is able to increase SEO through press articles about Amazon consumer behavior and relevant pop-culture trends. Specifically our digital PR program has netted 140 high-quality backlinks to Pattern.com in 2024. ' + 
             'During my time at Pattern, Pattern has been in the news 3 times per day on average. Pattern is also now the top organic search term for "ecommerce accelerator" ' +
-            'Finally, stories come from 547 publications in 46 states in the U.S. and 9 countries around the world.'
+            'Finally, stories come from 547 publications in 46 states in the U.S. and 9 countries around the world.',
+            projects: [
+                'Customer segmentation clustering analysis for sales team',
+                'Streamlit app for category pricing tool',
+                'Automated data ingestion and processing pipeline from Amazon product API\'s into Snowflake to calculate lost revenue from brand competitors on Amazon. Automated query through Streamlit interface',
+                'EDA and statistical modeling for Amazon category insights'
+            ]
         },
         {
             title: 'Full Stack Developer (Part-time)',
@@ -140,7 +146,18 @@ const HomePage = () => {
             'Oracle, Angular, Nest and Node but in January 2024 we switched to React, Express and Node using Vite and Turbo-repo. ' + 
             'I was given the responsibility of Lead Developer in March 2024 and have been leading development on a new mobile/web application since then.' +
             'I have learned a lot working very closely with a QA team and a project manager to ensure that our applications are bug free and meet the needs of our users. ' +
-            'Most recently I have been working on an AI-powered chatbot that allows missionaries to practice communicating with people in different languages both over text and voice.'
+            'Most recently I have been working on an AI-powered chatbot that allows missionaries to practice communicating with people in different languages both over text and voice.',
+            projects: [
+                'Bug fixing on legacy applications',
+                'Built from scratch and shipped new mobile/web application using React, Express, Vite, Turbo-repo, Module Federation and Capacitor',
+                'Lead developer on mobile/web AI chatbot',
+                'AI chatbot with React and AWS Websockts on top of openAI GPT-4o and Whisper for audio input and output',
+                'Automated testing with Cypress',
+                'AWS Lambda functions for serverless architecture',
+                'AWS Redis for auth caching',
+                'Terraform for AWS cloud architecture',
+                'Azure DevOps for CI/CD'
+            ]
         },
     ];
 
@@ -150,8 +167,9 @@ const HomePage = () => {
                 <Profile
                     profilePicture={profilePic}
                     name={'Brayden Christensen'}
-                    intro={"I am a senior studying Computer Science with an emphasis in Machine Learning and Math Minor. " +
-                    "I love to learn! In my free time I love to try new sports, games, and music. I snowboard and play the drums. Here are some of my skills and projects!"}
+                    intro={"I am a senior studying Computer Science with an emphasis in Machine Learning. " +
+                    "Check out my Hugging Face profile to see the models I have fine-tuned and played around with. " + 
+                    "In my free time I love to try new sports, games, and music. I snowboard and play the drums. Here are my strongest skills and personal projects!"}
                 />
             </div>
             <div className="container mx-auto py-8">
@@ -200,6 +218,14 @@ const HomePage = () => {
                                     <h2 className="text-2xl font-bold mb-2">{exp.title}</h2>
                                     <p className="text-blue-400 mb-2"><LinkIcon /><b><a href={exp.link}>{exp.company}</a></b> - {exp.duration}</p>
                                     <p className="text-gray-400">{exp.description}</p>
+                                    <div className="mt-4">
+                                        <h3 className='font-bold'>Projects/Responsibilites:</h3>
+                                        {exp.projects.map((project, index) => (
+                                            <ul key={index} className="text-gray-400 list-disc list-inside text-sm my-1 ml-3">
+                                                <li>{project}</li>
+                                            </ul>
+                                        ))}
+                                    </div>
                                 </div>
                             ))}
                         </div>
