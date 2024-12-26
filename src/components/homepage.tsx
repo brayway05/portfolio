@@ -125,7 +125,7 @@ const HomePage = () => {
             title: 'Data Science Intern (Part-time)',
             company: 'Pattern',
             link: 'https://pattern.com/',
-            duration: 'Dec 2023 - Present',
+            duration: 'Dec 2023 - Dec 2024',
             description: 'At Pattern, I develop automated tools using Streamlit and SQL for data and consumer trend analysis for the marketing team. I so spend time developing machine learning models like simple Neural Networks, Multi-polynomial Linear Regression, XGboost Trees, Clustering Algorithms and more for exploratory data analysis, visualization and modeling. ' + 
             'With these tools, the PR team is able to increase SEO through press articles about Amazon consumer behavior and relevant pop-culture trends. Specifically our digital PR program has netted 140 high-quality backlinks to Pattern.com in 2024. ' + 
             'During my time at Pattern, Pattern has been in the news 3 times per day on average. Pattern is also now the top organic search term for "ecommerce accelerator" ' +
@@ -141,7 +141,7 @@ const HomePage = () => {
             title: 'Full Stack Developer (Part-time)',
             company: 'Church of Jesus Christ of Latter-day Saints',
             link: 'https://www.churchofjesuschrist.org/?lang=eng',
-            duration: 'Mar 2023 - Present',
+            duration: 'Mar 2023 - Jan 2025',
             description: 'Build and maintain in-house web/mobile applications in a small dev team. When I started our stack was ' +
             'Oracle, Angular, Nest and Node but in January 2024 we switched to React, Express and Node using Vite and Turbo-repo. ' + 
             'I was given the responsibility of Lead Developer in March 2024 and have been leading development on a new mobile/web application since then.' +
