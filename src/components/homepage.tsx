@@ -122,14 +122,28 @@ const HomePage = () => {
 
     const experience = [
         {
+            title: 'Software Engineer (Full-time)',
+            company: 'Bricks and Minfigs (BAM)',
+            link: 'https://bricksandminifigs.com/',
+            duration: 'Jan 2025 - Present',
+            description: 'At BAM, I work on our central franchise management system. This system is used across almost 200 stores in the US and Canada and is responsible for managing inventory, sales, and customer data. ' +
+            'I have created automated buys and sales reports for store managers and the corporate team. ' + 
+            'I continue to work on this system and other internal tools to help our stores run more efficiently and effectively. ' +
+            'Our team being so small, I also take responsibility for our CI/CD pipeline and our plans to create a data warehousing pipeline to better store and generate reports and analytics .',
+            projects: [
+                'Migrated entire system from Create-React-App to Vite',
+                'Automated Trello Agile workflow with Github Actions',
+            ]
+        },
+        {
             title: 'Data Science Intern (Part-time)',
             company: 'Pattern',
             link: 'https://pattern.com/',
             duration: 'Dec 2023 - Dec 2024',
-            description: 'At Pattern, I develop automated tools using Streamlit and SQL for data and consumer trend analysis for the marketing team. I so spend time developing machine learning models like simple Neural Networks, Multi-polynomial Linear Regression, XGboost Trees, Clustering Algorithms and more for exploratory data analysis, visualization and modeling. ' + 
-            'With these tools, the PR team is able to increase SEO through press articles about Amazon consumer behavior and relevant pop-culture trends. Specifically our digital PR program has netted 140 high-quality backlinks to Pattern.com in 2024. ' + 
-            'During my time at Pattern, Pattern has been in the news 3 times per day on average. Pattern is also now the top organic search term for "ecommerce accelerator" ' +
-            'Finally, stories come from 547 publications in 46 states in the U.S. and 9 countries around the world.',
+            description: 'At Pattern, I developed automated tools using Streamlit and SQL for data and consumer trend analysis for the marketing team. I developed machine learning models like simple Neural Networks, Multi-polynomial Linear Regression, XGboost Trees, Clustering Algorithms and more for exploratory data analysis, visualization and modeling. ' + 
+            'With these tools, the PR team was able to increase SEO through press articles about Amazon consumer behavior and relevant pop-culture trends. Specifically our digital PR program netted 140 high-quality backlinks to Pattern.com in 2024. ' + 
+            'During my time at Pattern, Pattern was in the news 3 times per day on average. Pattern is also now the top organic search term for "ecommerce accelerator" ' +
+            'Finally, stories about Pattern came from 547 publications in 46 states in the U.S. and 9 countries around the world.',
             projects: [
                 'Customer segmentation clustering analysis for sales team',
                 'Streamlit app for category pricing tool',
@@ -142,16 +156,16 @@ const HomePage = () => {
             company: 'Church of Jesus Christ of Latter-day Saints',
             link: 'https://www.churchofjesuschrist.org/?lang=eng',
             duration: 'Mar 2023 - Jan 2025',
-            description: 'Build and maintain in-house web/mobile applications in a small dev team. When I started our stack was ' +
-            'Oracle, Angular, Nest and Node but in January 2024 we switched to React, Express and Node using Vite and Turbo-repo. ' + 
+            description: 'Built and maintained in-house web/mobile applications in a small dev team. When I started our stack was ' +
+            'Oracle, Angular, Nest and Node but in January 2024 we switched to React, Express, Tailwind CSS and Node with Vite. ' + 
             'I was given the responsibility of Lead Developer in March 2024 and have been leading development on a new mobile/web application since then.' +
-            'I have learned a lot working very closely with a QA team and a project manager to ensure that our applications are bug free and meet the needs of our users. ' +
-            'Most recently I have been working on an AI-powered chatbot that allows missionaries to practice communicating with people in different languages both over text and voice.',
+            'I learned a lot working very closely with a QA team and a project manager to ensure that our applications are bug free and meet the needs of our users. ' +
+            'My final project was working on an AI-powered chatbot that allows missionaries to practice communicating with people and teaching in different languages both over text and voice.',
             projects: [
-                'Bug fixing on legacy applications',
-                'Built from scratch and shipped new mobile/web application using React, Express, Vite, Turbo-repo, Module Federation and Capacitor',
+                'Bug fixing for legacy applications',
+                'Built from scratch and shipped new mobile/web application using React, Express, Vite, Tailwind CSS, and CapacitorJS',
                 'Lead developer on mobile/web AI chatbot',
-                'AI chatbot with React and AWS Websockts on top of openAI GPT-4o and Whisper for audio input and output',
+                'AI chatbot with React and AWS hosted Websockets on top of OpenAI GPT-4o and Whisper for audio input and output',
                 'Automated testing with Cypress',
                 'AWS Lambda functions for serverless architecture',
                 'AWS Redis for auth caching',
