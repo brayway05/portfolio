@@ -15,6 +15,7 @@ import metrics from "../assets/project_images/lang_detect/metrics.png";
 import plots from "../assets/project_images/lang_detect/plots.png";
 import query1 from "../assets/project_images/nlp_queries/query1.png";
 import query2 from "../assets/project_images/nlp_queries/query2.png";
+import mlPipelineArchitecture from "../assets/project_images/e2e_ml_pipeline/architecture.png";
 import DemoComponent from "./demo.tsx";
 import S3FileViewer from "./pipeline-s3-viewer.tsx";
 import Profile from "./profile.tsx";
@@ -118,12 +119,27 @@ const HomePage = () => {
     component: S3FileViewer,
   };
 
+  const e2e_ml_pipeline: Project = {
+    title: "End-to-End ML Pipeline",
+    summary:
+      "AWS ML Ops midterm project using AWS Glue for the ETL process, " +
+      "Sagemaker for the EDA, feature engineering, model training, selection, and deployment, and API Gateway for the public endpoint. " +
+      "Compared three different models for predicting customer churn and went with a Random Forest Classifier.",
+    photos: [
+      {
+        src: mlPipelineArchitecture,
+        caption: "ML Pipeline Architecture",
+      },
+    ],
+  };
+
   const projects: Project[] = [
-    nlp_queries,
-    deep_learning_final,
-    category_pricing,
-    fraud_detection,
+    e2e_ml_pipeline,
     pipeline_project,
+    fraud_detection,
+    category_pricing,
+    deep_learning_final,
+    nlp_queries,
   ];
 
   const experience = [

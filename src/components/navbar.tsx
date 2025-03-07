@@ -5,7 +5,7 @@ import linkedinLogo from "../assets/logos/white_linkedin.png";
 
 const Navbar = () => {
   return (
-    <nav className="bg-[#192031] py-4 sticky top-0">
+    <nav className="bg-[#192031] py-4 sticky top-0 z-50">
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="text-white font-bold text-xl">Brayden Christensen</div>
         <ul className="flex space-x-4">
