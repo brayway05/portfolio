@@ -23,6 +23,7 @@ import mlPipelineArchitecture from '../assets/project_images/e2e_ml_pipeline/arc
 import AST from '../assets/project_images/lang_detect/AST.png';
 import metrics from '../assets/project_images/lang_detect/metrics.png';
 import plots from '../assets/project_images/lang_detect/plots.png';
+import React from 'react';
 
 interface Project {
   title: string;
@@ -33,6 +34,29 @@ interface Project {
 }
 
 export default function Home() {
+  const [resumeUrl, setResumeUrl] = React.useState<string>('');
+
+  React.useEffect(() => {
+    const fetchResumeUrl = async () => {
+      try {
+        // maybe move this url to an environment variable in Amplify that grabs the appropriate S3 bucket
+        const response: any = await fetch(
+          'https://sl5uzys3otwmkabz3sw5xyvlra0evugg.lambda-url.us-east-1.on.aws/'
+        );
+        if (response.ok) {
+          const body = await response.json();
+          setResumeUrl(body.url);
+        } else {
+          console.error('Failed to fetch resume URL');
+        }
+      } catch (error) {
+        console.error('Error fetching resume URL:', error);
+      }
+    };
+
+    fetchResumeUrl();
+  }, []);
+
   const projects: Project[] = [
     {
       title: 'End-to-End ML Pipeline',
@@ -120,11 +144,15 @@ export default function Home() {
           </div>
           <div>
             <p className="mb-6 text-lg text-muted-foreground">
-              I'm a passionate developer with 5+ years of experience in building beautiful,
-              functional, and user-friendly applications. I specialize in React, Next.js, and
-              Node.js, with a strong focus on creating seamless user experiences.
+              I am a Computer Science graduate with an emphasis in Machine Learning. I love building
+              stuff and having real-world impact. In my free time I love to try new sports, games,
+              and music. I snowboard and play the drums. Here are my strongest skills and personal
+              projects!
             </p>
-            <Button>Download CV</Button>
+            {/* TODO: pull resume url from S3 and create simple script to push resume to S3 */}
+            <Link href={resumeUrl} target="_blank" rel="noopener noreferrer">
+              <Button>Download CV</Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -172,17 +200,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Experience Section */}
       <section className="mx-auto max-w-7xl px-4 py-20 md:px-6 lg:px-8">
-        <h2 className="mb-12 text-center text-4xl font-bold">Get in Touch</h2>
+        <h2 className="mb-12 text-center text-4xl font-bold">Work Experience</h2>
         <div className="mx-auto max-w-2xl text-center">
-          <p className="mb-8 text-lg text-muted-foreground">
-            I'm always open to new opportunities and interesting projects. Feel free to reach out!
-          </p>
-          <Button size="lg">
-            <Mail className="mr-2 h-5 w-5" />
-            Contact Me
-          </Button>
+          <p className="mb-8 text-lg text-muted-foreground"></p>
         </div>
       </section>
     </main>
