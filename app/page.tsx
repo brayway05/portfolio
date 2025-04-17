@@ -152,8 +152,8 @@ export default function Home() {
               and music. I snowboard and play the drums. Here are my strongest skills and personal
               projects!
             </p>
-            {/* TODO: pull resume url from S3 and create simple script to push resume to S3 */}
-            <Link href='/files/resume.pdf' target="_blank" rel="noopener noreferrer">
+            {/* Can put resume in /public directory as well --> https://nextjs.org/docs/pages/building-your-application/optimizing/static-assets */}
+            <Link href={resumeUrl} target="_blank" rel="noopener noreferrer">
               <Button>Download CV</Button>
             </Link>
           </div>
