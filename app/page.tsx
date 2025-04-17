@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Facebook, Github, Linkedin, Mail } from 'lucide-react';
+import S3FileViewer from '@/components/ui/pipeline-s3-viewer';
 import Image, { StaticImageData } from 'next/image';
 import {
   Carousel,
@@ -31,6 +32,7 @@ interface Project {
   github_url?: string;
   images?: StaticImageData[];
   component?: React.FC;
+  customComponent?: React.FC;
 }
 
 export default function Home() {
@@ -83,6 +85,7 @@ export default function Home() {
         'Personal Data Engineering project using Apache Airflow and Spark to take data from the Starlink free API, process their satellite data, and store it in S3',
       github_url: 'https://github.com/brayway05/pipeline_project',
       images: [],
+      customComponent: S3FileViewer,
     },
     {
       title: 'Deep Learning Final Project',
@@ -150,7 +153,7 @@ export default function Home() {
               projects!
             </p>
             {/* TODO: pull resume url from S3 and create simple script to push resume to S3 */}
-            <Link href={resumeUrl} target="_blank" rel="noopener noreferrer">
+            <Link href='/files/resume.pdf' target="_blank" rel="noopener noreferrer">
               <Button>Download CV</Button>
             </Link>
           </div>
@@ -166,45 +169,54 @@ export default function Home() {
               key={index}
               className="transform overflow-hidden transition-transform hover:scale-110"
             >
-              <Carousel className="w-full">
-                <CarouselContent>
-                  {project.images?.map((image, imageIndex) => (
-                    <CarouselItem key={imageIndex}>
-                      <div
-                        className="relative aspect-video cursor-pointer"
-                        onClick={() => window.open(image.src, '_blank')}
-                      >
-                        <Image
-                          src={image}
-                          alt={`${project.title} - Image ${imageIndex + 1}`}
-                          fill
-                          className="object-contain"
-                        />
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                {project.images && project.images.length > 1 && (
-                  <>
-                    <CarouselPrevious className="left-2" />
-                    <CarouselNext className="right-2" />
-                  </>
-                )}
-              </Carousel>
+              {!project.customComponent && (
+                <Carousel className="w-full">
+                  <CarouselContent>
+                    {project.images?.map((image, imageIndex) => (
+                      <CarouselItem key={imageIndex}>
+                        <div
+                          className="relative aspect-video cursor-pointer"
+                          onClick={() => window.open(image.src, '_blank')}
+                        >
+                          <Image
+                            src={image}
+                            alt={`${project.title} - Image ${imageIndex + 1}`}
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  {project.images && project.images.length > 1 && (
+                    <>
+                      <CarouselPrevious className="left-2" />
+                      <CarouselNext className="right-2" />
+                    </>
+                  )}
+                </Carousel>
+              )}
               <CardContent className="p-8">
+                {project.customComponent && (
+                  <div className="pb-8">
+                    <project.customComponent />
+                  </div>
+                )}
                 <h3 className="mb-4 text-2xl font-semibold">{project.title}</h3>
+                {project.github_url && (
+                  <Button
+                    onClick={() => window.open(project.github_url, '_blank')}
+                    rel="noopener noreferrer"
+                    className="mb-4 inline-flex items-center"
+                  >
+                    <Github className="mr-2 h-5 w-5" />
+                    View on GitHub
+                  </Button>
+                )}
                 <p className="text-lg text-muted-foreground">{project.description}</p>
               </CardContent>
             </Card>
           ))}
-        </div>
-      </section>
-
-      {/* Experience Section */}
-      <section className="mx-auto max-w-7xl px-4 py-20 md:px-6 lg:px-8">
-        <h2 className="mb-12 text-center text-4xl font-bold">Work Experience</h2>
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="mb-8 text-lg text-muted-foreground"></p>
         </div>
       </section>
     </main>
