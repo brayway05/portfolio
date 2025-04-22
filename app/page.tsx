@@ -24,6 +24,7 @@ import mlPipelineArchitecture from '../assets/project_images/e2e_ml_pipeline/arc
 import AST from '../assets/project_images/lang_detect/AST.png';
 import metrics from '../assets/project_images/lang_detect/metrics.png';
 import plots from '../assets/project_images/lang_detect/plots.png';
+import spotParking from '../assets/project_images/spot-parking-architecture.png';
 import React from 'react';
 
 interface Project {
@@ -31,6 +32,7 @@ interface Project {
   description: string;
   github_url?: string;
   images?: StaticImageData[];
+  pdf?: string;
   component?: React.FC;
   customComponent?: React.FC;
 }
@@ -60,6 +62,12 @@ export default function Home() {
   }, []);
 
   const projects: Project[] = [
+    {
+      title: 'ML Ops Spot Parking Final Project',
+      description: 'AWS ML Ops final project moving an a small-scale video inference system to AWS',
+      images: [spotParking],
+      // pdf: '/files/spot-parking-architecture-diagram.pdf',
+    },
     {
       title: 'End-to-End ML Pipeline',
       description:
@@ -169,7 +177,7 @@ export default function Home() {
               key={index}
               className="transform overflow-hidden transition-transform hover:scale-110"
             >
-              {!project.customComponent && (
+              {!project.customComponent && !project.pdf && (
                 <Carousel className="w-full">
                   <CarouselContent>
                     {project.images?.map((image, imageIndex) => (
@@ -201,6 +209,16 @@ export default function Home() {
                   <div className="pb-8">
                     <project.customComponent />
                   </div>
+                )}
+                {project.pdf && (
+                  <Link
+                    href={project.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-lg font-semibold text-white"
+                  >
+                    View PDF
+                  </Link>
                 )}
                 <h3 className="mb-4 text-2xl font-semibold">{project.title}</h3>
                 {project.github_url && (
