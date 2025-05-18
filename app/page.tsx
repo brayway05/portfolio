@@ -169,72 +169,79 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section className="mx-auto max-w-7xl px-4 py-20 md:px-6 lg:px-8">
-        <h2 className="mb-12 text-center text-4xl font-bold">My Projects</h2>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="transform overflow-hidden transition-transform hover:scale-110"
-            >
-              {!project.customComponent && !project.pdf && (
-                <Carousel className="w-full">
-                  <CarouselContent>
-                    {project.images?.map((image, imageIndex) => (
-                      <CarouselItem key={imageIndex}>
-                        <div
-                          className="relative aspect-video cursor-pointer"
-                          onClick={() => window.open(image.src, '_blank')}
-                        >
-                          <Image
-                            src={image}
-                            alt={`${project.title} - Image ${imageIndex + 1}`}
-                            fill
-                            className="object-contain"
-                          />
-                        </div>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                  {project.images && project.images.length > 1 && (
-                    <>
-                      <CarouselPrevious className="left-2" />
-                      <CarouselNext className="right-2" />
-                    </>
+      <section className="relative py-20">
+        <div className="absolute inset-0 z-0 bg-black bg-[linear-gradient(rgba(75,75,75,0.3)_1px,transparent_1px),linear-gradient(to_right,rgba(75,75,75,0.3)_1px,transparent_1px)] bg-[size:20px_20px]" />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+          <div className="mb-16 text-center">
+            <h2 className="mb-4 text-4xl font-bold text-white">My Projects</h2>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {projects.map((project, index) => (
+              <Card
+                key={index}
+                className="transform overflow-hidden shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              >
+                {!project.customComponent && !project.pdf && (
+                  <Carousel className="w-full">
+                    <CarouselContent>
+                      {project.images?.map((image, imageIndex) => (
+                        <CarouselItem key={imageIndex}>
+                          <div
+                            className="relative aspect-video cursor-pointer"
+                            onClick={() => window.open(image.src, '_blank')}
+                          >
+                            <Image
+                              src={image}
+                              alt={`${project.title} - Image ${imageIndex + 1}`}
+                              fill
+                              className="object-contain"
+                            />
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    {project.images && project.images.length > 1 && (
+                      <>
+                        <CarouselPrevious className="left-2" />
+                        <CarouselNext className="right-2" />
+                      </>
+                    )}
+                  </Carousel>
+                )}
+                <CardContent className="p-8">
+                  {project.customComponent && (
+                    <div className="pb-8">
+                      <project.customComponent />
+                    </div>
                   )}
-                </Carousel>
-              )}
-              <CardContent className="p-8">
-                {project.customComponent && (
-                  <div className="pb-8">
-                    <project.customComponent />
-                  </div>
-                )}
-                {project.pdf && (
-                  <Link
-                    href={project.pdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-lg font-semibold text-white"
-                  >
-                    View PDF
-                  </Link>
-                )}
-                <h3 className="mb-4 text-2xl font-semibold">{project.title}</h3>
-                {project.github_url && (
-                  <Button
-                    onClick={() => window.open(project.github_url, '_blank')}
-                    rel="noopener noreferrer"
-                    className="mb-4 inline-flex items-center"
-                  >
-                    <Github className="mr-2 h-5 w-5" />
-                    View on GitHub
-                  </Button>
-                )}
-                <p className="text-lg text-muted-foreground">{project.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+                  {project.pdf && (
+                    <Link
+                      href={project.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-lg font-semibold text-white"
+                    >
+                      View PDF
+                    </Link>
+                  )}
+                  <h3 className="mb-4 text-2xl font-semibold">{project.title}</h3>
+                  {project.github_url && (
+                    <Button
+                      onClick={() => window.open(project.github_url, '_blank')}
+                      rel="noopener noreferrer"
+                      className="mb-4 inline-flex items-center"
+                    >
+                      <Github className="mr-2 h-5 w-5" />
+                      View on GitHub
+                    </Button>
+                  )}
+                  <p className="text-lg text-muted-foreground">{project.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
     </main>
