@@ -26,19 +26,30 @@ import metrics from '../assets/project_images/lang_detect/metrics.png';
 import plots from '../assets/project_images/lang_detect/plots.png';
 import spotParking from '../assets/project_images/spot-parking-architecture.png';
 import React from 'react';
+import { ProjectMarkdownDialog } from '@/components/project-markdown-dialog';
 
 interface Project {
   title: string;
   description: string;
   github_url?: string;
+  markdownPublicPath?: string;
   images?: StaticImageData[];
   pdf?: string;
   component?: React.FC;
   customComponent?: React.FC;
 }
 
+interface ProjectGroup {
+  label: string;
+  projects: Project[];
+}
+
 export default function Home() {
   const [resumeUrl, setResumeUrl] = React.useState<string>('');
+  const [markdownDialog, setMarkdownDialog] = React.useState<{
+    title: string;
+    url: string;
+  } | null>(null);
 
   React.useEffect(() => {
     const fetchResumeUrl = async () => {
@@ -61,45 +72,67 @@ export default function Home() {
     fetchResumeUrl();
   }, []);
 
-  const projects: Project[] = [
+  const projectGroups: ProjectGroup[] = [
     {
-      title: 'ML Ops Spot Parking Final Project',
-      description: 'AWS ML Ops final project moving an a small-scale video inference system to AWS',
-      images: [spotParking],
-      // pdf: '/files/spot-parking-architecture-diagram.pdf',
+      label: 'School-Related Projects',
+      projects: [
+        {
+          title: 'ML Ops Spot Parking Final Project',
+          description:
+            'AWS ML Ops final project moving an a small-scale video inference system to AWS',
+          images: [spotParking],
+        },
+        {
+          title: 'End-to-End ML Pipeline',
+          description:
+            'AWS ML Ops midterm project using AWS Glue, S3, and Sagemaker for the EDA, feature engineering, model training, selection, and deployment, and API Gateway for the public endpoint.',
+          images: [mlPipelineArchitecture],
+        },
+        {
+          title: 'Credit Card Fraud detection model',
+          description:
+            'Machine Learning group final project using Kaggle dataset to predict credit card fraud. Used SMOTE, PCA, and XGBoost to achieve 99% accuracy.',
+          github_url: 'https://github.com/brayway05/fraud-detection',
+          images: [roc, confusion, table],
+        },
+        {
+          title: 'Deep Learning Final Project',
+          description: 'Language classification using deep learning techniques',
+          github_url: 'https://github.com/brayway05/language-classification',
+          images: [AST, metrics, plots],
+        },
+      ],
     },
     {
-      title: 'End-to-End ML Pipeline',
-      description:
-        'AWS ML Ops midterm project using AWS Glue, S3, and Sagemaker for the EDA, feature engineering, model training, selection, and deployment, and API Gateway for the public endpoint.',
-      images: [mlPipelineArchitecture],
+      label: 'Personal Projects',
+      projects: [
+        {
+          title: 'Apache Airflow Project',
+          description:
+            'Personal Data Engineering project using Apache Airflow and Spark to take data from the Starlink free API, process their satellite data, and store it in S3',
+          github_url: 'https://github.com/brayway05/pipeline_project',
+          images: [],
+          customComponent: S3FileViewer,
+        },
+        {
+          title: 'Salon Inventory Agent',
+          description:
+            'Mastra-powered AI assistant for salon hair color inventory: natural-language stock updates, PostgreSQL-backed data, Open WebUI chat, hybrid Raspberry Pi and AWS deployment over WireGuard.',
+          images: [],
+          markdownPublicPath: '/projects/salon-inventory.md',
+        },
+      ],
     },
     {
-      title: 'Category Pricing Tool @ Pattern',
-      description:
-        'Data warehouse analysis on US Amazon category price trends. Streamlit app to automate data query, run category pricing algorithm and download data for marketing team analysis and visualization.',
-      images: [pricing_1, pricing_2],
-    },
-    {
-      title: 'Credit Card Fraud Detection Model',
-      description:
-        'Machine Learning group final project using Kaggle dataset to predict credit card fraud. Used SMOTE, PCA, and XGBoost to achieve 99% accuracy.',
-      github_url: 'https://github.com/brayway05/fraud-detection',
-      images: [roc, confusion, table],
-    },
-    {
-      title: 'Apache Airflow Pipeline Project',
-      description:
-        'Personal Data Engineering project using Apache Airflow and Spark to take data from the Starlink free API, process their satellite data, and store it in S3',
-      github_url: 'https://github.com/brayway05/pipeline_project',
-      images: [],
-      customComponent: S3FileViewer,
-    },
-    {
-      title: 'Deep Learning Final Project',
-      description: 'Language classification using deep learning techniques',
-      github_url: 'https://github.com/brayway05/language-classification',
-      images: [AST, metrics, plots],
+      label: 'Work Projects',
+      projects: [
+        {
+          title: 'Category Pricing Tool @ Pattern',
+          description:
+            'Data warehouse analysis on US Amazon category price trends. Streamlit app to automate data query, run category pricing algorithm and download data for marketing team analysis and visualization.',
+          images: [pricing_1, pricing_2],
+        },
+      ],
     },
   ];
 
@@ -155,10 +188,9 @@ export default function Home() {
           </div>
           <div>
             <p className="mb-6 text-lg text-muted-foreground">
-              I am a Computer Science graduate with an emphasis in Machine Learning. I love building
-              stuff and having real-world impact. In my free time I love to try new sports, games,
-              and music. I snowboard and play the drums. Here are my strongest skills and personal
-              projects!
+              I love building things and having real-world impact. 
+              Some of the topics that I'm most interested in are networking, machine learning, and computer vision.
+              Here are some of my personal projects!
             </p>
             {/* Can put resume in /public directory as well --> https://nextjs.org/docs/pages/building-your-application/optimizing/static-assets */}
             <Link href={resumeUrl} target="_blank" rel="noopener noreferrer">
@@ -177,73 +209,112 @@ export default function Home() {
             <h2 className="mb-4 text-4xl font-bold text-white">My Projects</h2>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project, index) => (
-              <Card
-                key={index}
-                className="transform overflow-hidden shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
-              >
-                {!project.customComponent && !project.pdf && (
-                  <Carousel className="w-full">
-                    <CarouselContent>
-                      {project.images?.map((image, imageIndex) => (
-                        <CarouselItem key={imageIndex}>
-                          <div
-                            className="relative aspect-video cursor-pointer"
-                            onClick={() => window.open(image.src, '_blank')}
-                          >
-                            <Image
-                              src={image}
-                              alt={`${project.title} - Image ${imageIndex + 1}`}
-                              fill
-                              className="object-contain"
-                            />
+          <div className="flex flex-col gap-16">
+            {projectGroups.map((group) => (
+              <div key={group.label}>
+                <h3 className="mb-8 text-2xl font-semibold tracking-tight text-white md:text-3xl">
+                  {group.label}
+                </h3>
+                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                  {group.projects.map((project, index) => (
+                    <Card
+                      key={`${group.label}-${index}`}
+                      className="transform overflow-hidden shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                    >
+                      {!project.customComponent &&
+                        !project.pdf &&
+                        project.images &&
+                        project.images.length > 0 && (
+                          <Carousel className="w-full">
+                            <CarouselContent>
+                              {project.images.map((image, imageIndex) => (
+                                <CarouselItem key={imageIndex}>
+                                  <div
+                                    className="relative aspect-video cursor-pointer"
+                                    onClick={() => window.open(image.src, '_blank')}
+                                  >
+                                    <Image
+                                      src={image}
+                                      alt={`${project.title} - Image ${imageIndex + 1}`}
+                                      fill
+                                      className="object-contain"
+                                    />
+                                  </div>
+                                </CarouselItem>
+                              ))}
+                            </CarouselContent>
+                            {project.images.length > 1 && (
+                              <>
+                                <CarouselPrevious className="left-2" />
+                                <CarouselNext className="right-2" />
+                              </>
+                            )}
+                          </Carousel>
+                        )}
+                      <CardContent className="p-8">
+                        {project.customComponent && (
+                          <div className="pb-8">
+                            <project.customComponent />
                           </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    {project.images && project.images.length > 1 && (
-                      <>
-                        <CarouselPrevious className="left-2" />
-                        <CarouselNext className="right-2" />
-                      </>
-                    )}
-                  </Carousel>
-                )}
-                <CardContent className="p-8">
-                  {project.customComponent && (
-                    <div className="pb-8">
-                      <project.customComponent />
-                    </div>
-                  )}
-                  {project.pdf && (
-                    <Link
-                      href={project.pdf}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-lg font-semibold text-white"
-                    >
-                      View PDF
-                    </Link>
-                  )}
-                  <h3 className="mb-4 text-2xl font-semibold">{project.title}</h3>
-                  {project.github_url && (
-                    <Button
-                      onClick={() => window.open(project.github_url, '_blank')}
-                      rel="noopener noreferrer"
-                      className="mb-4 inline-flex items-center"
-                    >
-                      <Github className="mr-2 h-5 w-5" />
-                      View on GitHub
-                    </Button>
-                  )}
-                  <p className="text-lg text-muted-foreground">{project.description}</p>
-                </CardContent>
-              </Card>
+                        )}
+                        {project.pdf && (
+                          <Link
+                            href={project.pdf}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-lg font-semibold text-white"
+                          >
+                            View PDF
+                          </Link>
+                        )}
+                        <h4 className="mb-4 text-2xl font-semibold">{project.title}</h4>
+                        <div className="mb-4 flex flex-wrap gap-2">
+                          {project.github_url && (
+                            <Button
+                              onClick={() => window.open(project.github_url, '_blank')}
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center"
+                            >
+                              <Github className="mr-2 h-5 w-5" />
+                              View on GitHub
+                            </Button>
+                          )}
+                          {project.markdownPublicPath && (
+                            <Button
+                              variant="secondary"
+                              className="inline-flex items-center"
+                              onClick={() =>
+                                setMarkdownDialog({
+                                  title: project.title,
+                                  url: project.markdownPublicPath!,
+                                })
+                              }
+                            >
+                              See more
+                            </Button>
+                          )}
+                        </div>
+                        <p className="text-lg text-muted-foreground">{project.description}</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
+
+      <ProjectMarkdownDialog
+        open={markdownDialog !== null}
+        onOpenChange={(open) => {
+          if (!open) {
+            setMarkdownDialog(null);
+          }
+        }}
+        title={markdownDialog?.title ?? ''}
+        markdownUrl={markdownDialog?.url ?? ''}
+      />
     </main>
   );
 }
